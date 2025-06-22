@@ -17,11 +17,17 @@
       padding: 20px 0;
       font-size: 2rem;
       font-weight: bold;
+      background: linear-gradient(90deg, #ff3c3c, #ff6a00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 10px rgba(255, 60, 60, 0.3);
     }
 
     .top-banner-ad {
       text-align: center;
-      margin: 10px 0;
+      margin: 10px auto;
+      max-width: 100%;
+      overflow: hidden;
     }
 
     .container {
@@ -39,16 +45,47 @@
       width: 300px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.5);
       transition: transform 0.2s ease;
+      border: 1px solid #333;
     }
 
     .card:hover {
       transform: scale(1.03);
+      box-shadow: 0 8px 16px rgba(255, 60, 60, 0.3);
+    }
+
+    .thumbnail {
+      position: relative;
+      height: 180px;
+      overflow: hidden;
     }
 
     .thumbnail img {
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: cover;
       display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover .thumbnail img {
+      transform: scale(1.05);
+    }
+
+    .thumbnail::before {
+      content: "▶";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 3rem;
+      color: rgba(255, 255, 255, 0.8);
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .card:hover .thumbnail::before {
+      opacity: 1;
     }
 
     .content {
@@ -59,26 +96,38 @@
       margin: 0 0 10px 0;
       font-size: 1.1rem;
       color: #ffffff;
+      min-height: 50px;
     }
 
     .watch-btn {
       display: inline-block;
-      background-color: #ff3c3c;
+      background: linear-gradient(90deg, #ff3c3c, #ff6a00);
       color: white;
       padding: 10px 15px;
       text-decoration: none;
       border-radius: 5px;
       font-weight: bold;
-      transition: background-color 0.2s ease;
+      transition: all 0.2s ease;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+      width: 100%;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
     }
 
     .watch-btn:hover {
-      background-color: #ff1a1a;
+      background: linear-gradient(90deg, #ff1a1a, #ff5500);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 8px rgba(0,0,0,0.3);
     }
 
     .native-ad {
       margin-top: 15px;
       text-align: center;
+      min-height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     footer {
@@ -86,46 +135,55 @@
       padding: 20px;
       font-size: 0.9rem;
       color: #888;
+      border-top: 1px solid #333;
+      margin-top: 20px;
     }
 
     @media (max-width: 600px) {
       .card {
         width: 90%;
       }
+      
+      header {
+        font-size: 1.5rem;
+      }
+      
+      .top-banner-ad {
+        padding: 0 10px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <header>🔥 Viral Video Showcase 🔥</header>
+  <header> My Viral Video Showcase </header>
 
-  <!-- Adsterra 468x60 Banner Ad -->
+  <!-- Top Banner Ad -->
   <div class="top-banner-ad">
-    <!-- Replace this code with your Adsterra 468x60 banner ad -->
-    <!-- Adsterra Banner Ad Code Start -->
-    <div id="ad-banner-468x60">
-      <!-- Example placeholder -->
-      <iframe src="https://via.placeholder.com/468x60?text=Adsterra+Banner" width="468" height="60" style="border:none;"></iframe>
-    </div>
-    <!-- Adsterra Banner Ad Code End -->
+    <script type="text/javascript">
+      atOptions = {
+        'key' : '1746851d823b4c97d2699a5137955d4e',
+        'format' : 'iframe',
+        'height' : 60,
+        'width' : 468,
+        'params' : {}
+      };
+    </script>
+    <script type="text/javascript" src="//dozepokinganthem.com/1746851d823b4c97d2699a5137955d4e/invoke.js"></script>
   </div>
 
   <div class="container">
     <!-- Video Card 1 -->
     <div class="card">
       <div class="thumbnail">
-        <img src="https://via.placeholder.com/300x180?text=Video+1" alt="Video 1">
+        <img src="https://www.resizepixel.com/Image/qznlabloitge/Preview/WhatsApp%20Image%202025-06-22%20at%2021..jpg?v=7ff60ae5-c156-4d02-8b9e-c1734eabb74c" alt="Playing with pussy">
       </div>
       <div class="content">
-        <h3>Epic Skateboard Trick Compilation</h3>
-        <a href="https://example.com/video1" class="watch-btn" target="_blank">Watch Now</a>
+        <h3>Playing with pussy</h3>
+        <a href="https://mega.nz/file/KtYxnACI#SMczF695-L628p42VkFbuiAJH3wO_LlY3kyB495jupI" class="watch-btn" target="_blank">Watch Now</a>
         <div class="native-ad">
-          <!-- Replace with Adsterra Native Banner Ad -->
-          <!-- Adsterra Native Ad Code Start -->
-          <div id="native-ad-1">
-            <iframe src="https://via.placeholder.com/250x100?text=Native+Ad+1" width="250" height="100" style="border:none;"></iframe>
-          </div>
-          <!-- Adsterra Native Ad Code End -->
+          <script async="async" data-cfasync="false" src="//dozepokinganthem.com/107f9bc568aa15915d49177375d63fb3/invoke.js"></script>
+          <div id="container-107f9bc568aa15915d49177375d63fb3"></div>
         </div>
       </div>
     </div>
@@ -133,18 +191,14 @@
     <!-- Video Card 2 -->
     <div class="card">
       <div class="thumbnail">
-        <img src="https://via.placeholder.com/300x180?text=Video+2" alt="Video 2">
+        <img src="https://www.resizepixel.com/Image/lxfjinnapxdx/Preview/WhatsApp%20Image%202025-06-22%20at%2021..jpg?v=19ce0c98-9131-418d-86ab-5b7bda36cf21" alt="My bf takes control on me">
       </div>
       <div class="content">
-        <h3>Unbelievable Animal Moments Caught on Camera</h3>
-        <a href="https://example.com/video2" class="watch-btn" target="_blank">Watch Now</a>
+        <h3>My bf takes control on me</h3>
+        <a href="https://mega.nz/file/HtxGyQAA#YDvpHeqJ9g343qMFj1cc5mjbvgBhaN77DCe9RPStofU" class="watch-btn" target="_blank">Watch Now</a>
         <div class="native-ad">
-          <!-- Replace with Adsterra Native Banner Ad -->
-          <!-- Adsterra Native Ad Code Start -->
-          <div id="native-ad-2">
-            <iframe src="https://via.placeholder.com/250x100?text=Native+Ad+2" width="250" height="100" style="border:none;"></iframe>
-          </div>
-          <!-- Adsterra Native Ad Code End -->
+          <script async="async" data-cfasync="false" src="//dozepokinganthem.com/107f9bc568aa15915d49177375d63fb3/invoke.js"></script>
+          <div id="container-107f9bc568aa15915d49177375d63fb3"></div>
         </div>
       </div>
     </div>
@@ -152,18 +206,14 @@
     <!-- Video Card 3 -->
     <div class="card">
       <div class="thumbnail">
-        <img src="https://via.placeholder.com/300x180?text=Video+3" alt="Video 3">
+        <img src="https://www.resizepixel.com/Image/ihzktaaqtppn/Preview/WhatsApp%20Image%202025-06-22%20at%2021..jpg?v=342ba76b-c882-4c95-a381-f2917ad4ce6b" alt="I enjoyed with my neighbor in balcony">
       </div>
       <div class="content">
-        <h3>Top 10 Funniest Fails of the Year</h3>
-        <a href="https://example.com/video3" class="watch-btn" target="_blank">Watch Now</a>
+        <h3>I enjoyed with my neighbor in balcony</h3>
+        <a href="https://mega.nz/file/z8RiALKZ#Beuc9TYyqOKOtSrh6ZE9U99isKgGxjSJ0oOxtYAa-iU" class="watch-btn" target="_blank">Watch Now</a>
         <div class="native-ad">
-          <!-- Replace with Adsterra Native Banner Ad -->
-          <!-- Adsterra Native Ad Code Start -->
-          <div id="native-ad-3">
-            <iframe src="https://via.placeholder.com/250x100?text=Native+Ad+3" width="250" height="100" style="border:none;"></iframe>
-          </div>
-          <!-- Adsterra Native Ad Code End -->
+          <script async="async" data-cfasync="false" src="//dozepokinganthem.com/107f9bc568aa15915d49177375d63fb3/invoke.js"></script>
+          <div id="container-107f9bc568aa15915d49177375d63fb3"></div>
         </div>
       </div>
     </div>
@@ -171,31 +221,11 @@
 
   <footer>&copy; 2025 Viral Vids. All rights reserved.</footer>
 
-  <!-- ✅ Adsterra Popunder Script (Async) -->
-  <!-- Replace YOUR_POPUNDER_CODE -->
-  <!-- Adsterra Popunder Script Start -->
-  <script type='text/javascript'>
-    (function(){
-      var popunderScript = document.createElement('script');
-      popunderScript.async = true;
-      popunderScript.src = '//www.popunder.adsterra.com/YOUR_POPUNDER_CODE.js';
-      document.body.appendChild(popunderScript);
-    })();
-  </script>
-  <!-- Adsterra Popunder Script End -->
+  <!-- Adsterra Popunder Script -->
+  <script type='text/javascript' src='//dozepokinganthem.com/39/c9/8b/39c98badc722ce846d87a73ec85e99c6.js'></script>
 
-  <!-- ✅ Adsterra Social Bar Script (Async) -->
-  <!-- Replace YOUR_SOCIAL_BAR_CODE -->
-  <!-- Adsterra Social Bar Script Start -->
-  <script type='text/javascript'>
-    (function(){
-      var socialBar = document.createElement('script');
-      socialBar.async = true;
-      socialBar.src = '//www.socialbarwidget.com/YOUR_SOCIAL_BAR_CODE.js';
-      document.body.appendChild(socialBar);
-    })();
-  </script>
-  <!-- Adsterra Social Bar Script End -->
+  <!-- Adsterra Social Bar Script -->
+  <script type='text/javascript' src='//dozepokinganthem.com/3e/fe/df/3efedfe8e4e33e2322fb3600d7ae0d44.js'></script>
 
 </body>
 </html>
