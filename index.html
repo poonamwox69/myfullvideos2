@@ -4,392 +4,172 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Viral Videos Showcase</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #121212;
       color: #f0f0f0;
-      line-height: 1.6;
-      min-height: 100vh;
-      padding-bottom: 40px;
-      position: relative;
-      overflow-x: hidden;
     }
-    
-    body::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgdmlld0JveD0iMCAwIDUwIDUwIj48cmVjdCB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIGZpbGw9Im5vbmUiLz48Y2lyY2xlIGN4PSIxNSIgY3k9IjE1IiByPSIxLjUiIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSIvPjxjaXJjbGUgY3g9IjM1IiBjeT0iMzUiIHI9IjEuNSIgZmlsbD0iI2ZmZiIgZmlsbC1vcGFjaXR5PSIwLjA1Ii8+PC9zdmc+');
-      z-index: -1;
-      opacity: 0.3;
-    }
-    
+
     header {
       text-align: center;
-      padding: 30px 0 20px;
-      background: rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(5px);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    
-    h1 {
-      font-size: 2.8rem;
-      font-weight: 800;
-      background: linear-gradient(to right, #ff416c, #ff4b2b);
+      padding: 20px 0;
+      font-size: 2rem;
+      font-weight: bold;
+      background: linear-gradient(90deg, #ff3c3c, #ff6a00);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin-bottom: 10px;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-      animation: glow 2s infinite alternate;
+      text-shadow: 0 0 10px rgba(255, 60, 60, 0.3);
     }
-    
-    @keyframes glow {
-      from { text-shadow: 0 0 5px rgba(255, 65, 108, 0.7); }
-      to { text-shadow: 0 0 15px rgba(255, 75, 43, 0.9), 0 0 20px rgba(255, 75, 43, 0.6); }
-    }
-    
-    .subtitle {
-      font-size: 1.2rem;
-      color: #a0a0d0;
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-    
+
     .top-banner-ad {
       text-align: center;
-      margin: 20px auto;
-      max-width: 800px;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 10px;
-      padding: 15px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      margin: 10px auto;
+      max-width: 100%;
+      overflow: hidden;
     }
-    
-    .ad-label {
-      display: block;
-      font-size: 0.8rem;
-      color: #888;
-      text-align: center;
-      margin-bottom: 8px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-    
+
     .container {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       padding: 20px;
-      gap: 30px;
-      max-width: 1400px;
-      margin: 0 auto;
+      gap: 20px;
     }
-    
+
     .card {
-      background: linear-gradient(145deg, #1e1e2e, #252540);
-      border-radius: 15px;
+      background-color: #1e1e1e;
+      border-radius: 10px;
       overflow: hidden;
-      width: 340px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      position: relative;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      animation: fadeIn 0.6s ease-out forwards;
-      opacity: 0;
+      width: 300px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+      transition: transform 0.2s ease;
+      border: 1px solid #333;
     }
-    
-    .card:nth-child(1) { animation-delay: 0.1s; }
-    .card:nth-child(2) { animation-delay: 0.3s; }
-    .card:nth-child(3) { animation-delay: 0.5s; }
-    
+
     .card:hover {
-      transform: translateY(-10px) scale(1.02);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+      transform: scale(1.03);
+      box-shadow: 0 8px 16px rgba(255, 60, 60, 0.3);
     }
-    
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 5px;
-      background: linear-gradient(to right, #ff416c, #ff4b2b);
-    }
-    
+
     .thumbnail {
       position: relative;
+      height: 180px;
       overflow: hidden;
-      height: 200px;
     }
-    
+
     .thumbnail img {
       width: 100%;
       height: 100%;
-      display: block;
       object-fit: cover;
-      transition: transform 0.5s ease;
+      display: block;
+      transition: transform 0.3s ease;
     }
-    
+
     .card:hover .thumbnail img {
       transform: scale(1.05);
     }
-    
-    .play-icon {
+
+    .thumbnail::before {
+      content: "▶";
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 70px;
-      height: 70px;
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      font-size: 3rem;
+      color: rgba(255, 255, 255, 0.8);
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
       opacity: 0;
-      transition: opacity 0.3s ease, background 0.3s ease;
-      backdrop-filter: blur(5px);
+      transition: opacity 0.3s ease;
     }
-    
-    .play-icon i {
-      color: white;
-      font-size: 30px;
-      margin-left: 5px;
-    }
-    
-    .card:hover .play-icon {
+
+    .card:hover .thumbnail::before {
       opacity: 1;
     }
-    
+
     .content {
-      padding: 20px;
+      padding: 15px;
     }
-    
+
     .content h3 {
-      margin: 0 0 15px 0;
-      font-size: 1.3rem;
-      color: #ffffff;
-      min-height: 60px;
-      display: flex;
-      align-items: center;
-    }
-    
-    .watch-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(to right, #ff416c, #ff4b2b);
-      color: white;
-      padding: 12px 25px;
-      text-decoration: none;
-      border-radius: 50px;
-      font-weight: bold;
-      transition: all 0.3s ease;
-      width: 100%;
-      border: none;
+      margin: 0 0 10px 0;
       font-size: 1.1rem;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(255, 75, 43, 0.3);
+      color: #ffffff;
+      min-height: 50px;
     }
-    
-    .watch-btn:hover {
-      background: linear-gradient(to right, #ff4b2b, #ff416c);
-      transform: translateY(-3px);
-      box-shadow: 0 6px 15px rgba(255, 75, 43, 0.5);
-    }
-    
-    .watch-btn:active {
-      transform: translateY(1px);
-    }
-    
-    .watch-btn i {
-      margin-right: 10px;
-    }
-    
-    .stats {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 15px;
-      font-size: 0.9rem;
-      color: #aaa;
-    }
-    
-    .native-ad {
-      margin-top: 20px;
-      text-align: center;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 8px;
-      padding: 12px;
-      font-size: 0.9rem;
-      color: #888;
-      border: 1px dashed rgba(255, 255, 255, 0.1);
-    }
-    
-    footer {
-      text-align: center;
-      padding: 30px 20px;
-      font-size: 1rem;
-      color: #888;
-      margin-top: 40px;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      max-width: 1200px;
-      margin: 50px auto 0;
-    }
-    
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 15px;
-      flex-wrap: wrap;
-    }
-    
-    .footer-links a {
-      color: #a0a0d0;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    
-    .footer-links a:hover {
-      color: #ff416c;
-    }
-    
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
-    .notification {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: rgba(0, 0, 0, 0.8);
-      color: white;
-      padding: 15px 20px;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      z-index: 1000;
-      transform: translateX(150%);
-      transition: transform 0.5s ease;
-      backdrop-filter: blur(10px);
-    }
-    
-    .notification.show {
-      transform: translateX(0);
-    }
-    
-    .notification i {
-      color: #ff416c;
-      font-size: 1.5rem;
-    }
-    
-    .counter {
-      position: fixed;
-      top: 80px;
-      right: 20px;
-      background: rgba(0, 0, 0, 0.7);
+
+    .watch-btn {
+      display: inline-block;
+      background: linear-gradient(90deg, #ff3c3c, #ff6a00);
       color: white;
       padding: 10px 15px;
-      border-radius: 50px;
-      font-size: 0.9rem;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: all 0.2s ease;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+      width: 100%;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    }
+
+    .watch-btn:hover {
+      background: linear-gradient(90deg, #ff1a1a, #ff5500);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 8px rgba(0,0,0,0.3);
+    }
+
+    .native-ad {
+      margin-top: 15px;
+      text-align: center;
+      min-height: 100px;
       display: flex;
       align-items: center;
-      gap: 8px;
-      z-index: 100;
-      backdrop-filter: blur(5px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      justify-content: center;
     }
-    
-    .counter i {
-      color: #ff416c;
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #888;
+      border-top: 1px solid #333;
+      margin-top: 20px;
     }
-    
-    @media (max-width: 768px) {
-      .container {
-        gap: 20px;
-        padding: 15px;
-      }
-      
+
+    @media (max-width: 600px) {
       .card {
-        width: 100%;
-        max-width: 400px;
+        width: 90%;
       }
       
-      h1 {
-        font-size: 2.2rem;
+      header {
+        font-size: 1.5rem;
       }
       
-      .subtitle {
-        font-size: 1rem;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      h1 {
-        font-size: 1.8rem;
-      }
-      
-      .content h3 {
-        font-size: 1.1rem;
-        min-height: auto;
-      }
-      
-      .watch-btn {
-        padding: 10px 15px;
-        font-size: 1rem;
-      }
-      
-      .footer-links {
-        flex-direction: column;
-        gap: 10px;
+      .top-banner-ad {
+        padding: 0 10px;
       }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1><i class="fas fa-fire"></i> Viral Video Showcase</h1>
-    <p class="subtitle">Discover the internet's most trending videos that everyone is talking about right now!</p>
-  </header>
+  <header> Viral Video Showcase </header>
 
-  <div class="counter">
-    <i class="fas fa-chart-line"></i>
-    <span id="adCounter">0</span> Ads Shown
-  </div>
-
+  <!-- Top Banner Ad -->
   <div class="top-banner-ad">
-    <span class="ad-label">Advertisement</span>
-    <div id="ad-banner-468x60">
-      <script type="text/javascript">
-        atOptions = {
-          'key' : '1746851d823b4c97d2699a5137955d4e',
-          'format' : 'iframe',
-          'height' : 60,
-          'width' : 468,
-          'params' : {}
-        };
-      </script>
-      <script type="text/javascript" src="//dozepokinganthem.com/1746851d823b4c97d2699a5137955d4e/invoke.js"></script>
-    </div>
+    <script type="text/javascript">
+      atOptions = {
+        'key' : '1746851d823b4c97d2699a5137955d4e',
+        'format' : 'iframe',
+        'height' : 60,
+        'width' : 468,
+        'params' : {}
+      };
+    </script>
+    <script type="text/javascript" src="//dozepokinganthem.com/1746851d823b4c97d2699a5137955d4e/invoke.js"></script>
   </div>
 
   <div class="container">
@@ -397,19 +177,10 @@
     <div class="card">
       <div class="thumbnail">
         <img src="https://www.resizepixel.com/Image/qznlabloitge/Preview/WhatsApp%20Image%202025-06-22%20at%2021..jpg?v=7ff60ae5-c156-4d02-8b9e-c1734eabb74c" alt="Playing with pussy">
-        <div class="play-icon">
-          <i class="fas fa-play"></i>
-        </div>
       </div>
       <div class="content">
         <h3>Playing with pussy</h3>
-        <a href="https://dozepokinganthem.com/cumzp6ix?key=99ca9ee0eff29ecd86f8fc4ebcb130ad" class="watch-btn" target="_blank">
-          <i class="fas fa-play-circle"></i> Watch Now
-        </a>
-        <div class="stats">
-          <span><i class="fas fa-eye"></i> 2.4M views</span>
-          <span><i class="far fa-clock"></i> 5:22</span>
-        </div>
+        <a href="https://mega.nz/file/KtYxnACI#SMczF695-L628p42VkFbuiAJH3wO_LlY3kyB495jupI" class="watch-btn" target="_blank">Watch Now</a>
         <div class="native-ad">
           <script async="async" data-cfasync="false" src="//dozepokinganthem.com/107f9bc568aa15915d49177375d63fb3/invoke.js"></script>
           <div id="container-107f9bc568aa15915d49177375d63fb3"></div>
@@ -421,19 +192,10 @@
     <div class="card">
       <div class="thumbnail">
         <img src="https://www.resizepixel.com/Image/lxfjinnapxdx/Preview/WhatsApp%20Image%202025-06-22%20at%2021..jpg?v=19ce0c98-9131-418d-86ab-5b7bda36cf21" alt="My bf takes control on me">
-        <div class="play-icon">
-          <i class="fas fa-play"></i>
-        </div>
       </div>
       <div class="content">
         <h3>My bf takes control on me</h3>
-        <a href="https://dozepokinganthem.com/cumzp6ix?key=99ca9ee0eff29ecd86f8fc4ebcb130ad" class="watch-btn" target="_blank">
-          <i class="fas fa-play-circle"></i> Watch Now
-        </a>
-        <div class="stats">
-          <span><i class="fas fa-eye"></i> 3.1M views</span>
-          <span><i class="far fa-clock"></i> 4:15</span>
-        </div>
+        <a href="https://mega.nz/file/HtxGyQAA#YDvpHeqJ9g343qMFj1cc5mjbvgBhaN77DCe9RPStofU" class="watch-btn" target="_blank">Watch Now</a>
         <div class="native-ad">
           <script async="async" data-cfasync="false" src="//dozepokinganthem.com/107f9bc568aa15915d49177375d63fb3/invoke.js"></script>
           <div id="container-107f9bc568aa15915d49177375d63fb3"></div>
@@ -445,19 +207,10 @@
     <div class="card">
       <div class="thumbnail">
         <img src="https://www.resizepixel.com/Image/ihzktaaqtppn/Preview/WhatsApp%20Image%202025-06-22%20at%2021..jpg?v=342ba76b-c882-4c95-a381-f2917ad4ce6b" alt="I enjoyed with my neighbor in balcony">
-        <div class="play-icon">
-          <i class="fas fa-play"></i>
-        </div>
       </div>
       <div class="content">
         <h3>I enjoyed with my neighbor in balcony</h3>
-        <a href="https://dozepokinganthem.com/cumzp6ix?key=99ca9ee0eff29ecd86f8fc4ebcb130ad" class="watch-btn" target="_blank">
-          <i class="fas fa-play-circle"></i> Watch Now
-        </a>
-        <div class="stats">
-          <span><i class="fas fa-eye"></i> 5.7M views</span>
-          <span><i class="far fa-clock"></i> 7:48</span>
-        </div>
+        <a href="https://mega.nz/file/z8RiALKZ#Beuc9TYyqOKOtSrh6ZE9U99isKgGxjSJ0oOxtYAa-iU" class="watch-btn" target="_blank">Watch Now</a>
         <div class="native-ad">
           <script async="async" data-cfasync="false" src="//dozepokinganthem.com/107f9bc568aa15915d49177375d63fb3/invoke.js"></script>
           <div id="container-107f9bc568aa15915d49177375d63fb3"></div>
@@ -466,22 +219,7 @@
     </div>
   </div>
 
-  <footer>
-    <p>&copy; 2025 Viral Vids. All rights reserved.</p>
-    <div class="footer-links">
-      <a href="#"><i class="fas fa-user-shield"></i> Privacy Policy</a>
-      <a href="#"><i class="fas fa-file-contract"></i> Terms of Service</a>
-      <a href="#"><i class="fas fa-question-circle"></i> FAQ</a>
-      <a href="#"><i class="fas fa-envelope"></i> Contact Us</a>
-    </div>
-  </footer>
-
-  <div class="notification" id="notification">
-    <i class="fas fa-coins"></i>
-    <div>
-      <strong>Ad Earnings:</strong> $<span id="earnings">0.00</span>
-    </div>
-  </div>
+  <footer>&copy; 2025 Viral Vids. All rights reserved.</footer>
 
   <!-- Adsterra Popunder Script -->
   <script type='text/javascript' src='//dozepokinganthem.com/39/c9/8b/39c98badc722ce846d87a73ec85e99c6.js'></script>
@@ -489,71 +227,5 @@
   <!-- Adsterra Social Bar Script -->
   <script type='text/javascript' src='//dozepokinganthem.com/3e/fe/df/3efedfe8e4e33e2322fb3600d7ae0d44.js'></script>
 
-  <script>
-    // Ad counter and earnings simulation
-    let adCount = 0;
-    let earnings = 0;
-    const adCounter = document.getElementById('adCounter');
-    const earningsElement = document.getElementById('earnings');
-    const notification = document.getElementById('notification');
-
-    // Function to simulate ad impressions
-    function simulateAdImpression() {
-      adCount++;
-      earnings += Math.random() * 0.04 + 0.01;
-      adCounter.textContent = adCount;
-      earningsElement.textContent = earnings.toFixed(2);
-      notification.classList.add('show');
-      
-      setTimeout(() => {
-        notification.classList.remove('show');
-      }, 3000);
-    }
-
-    // Simulate ad impressions at intervals
-    setInterval(simulateAdImpression, 8000);
-
-    // Initial impressions
-    setTimeout(() => {
-      simulateAdImpression();
-      simulateAdImpression();
-    }, 2000);
-
-    // Add hover effect to cards
-    document.querySelectorAll('.card').forEach(card => {
-      card.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-10px) scale(1.02)';
-      });
-
-      card.addEventListener('mouseleave', function() {
-        this.style.transform = '';
-      });
-    });
-
-    // Add click animation to buttons
-    document.querySelectorAll('.watch-btn').forEach(button => {
-      button.addEventListener('click', function(e) {
-        adCount += 2;
-        earnings += 0.10;
-        adCounter.textContent = adCount;
-        earningsElement.textContent = earnings.toFixed(2);
-        notification.classList.add('show');
-        
-        setTimeout(() => {
-          notification.classList.remove('show');
-        }, 3000);
-      });
-    });
-
-    // Show notification after page loads
-    document.addEventListener('DOMContentLoaded', function() {
-      setTimeout(() => {
-        notification.classList.add('show');
-        setTimeout(() => {
-          notification.classList.remove('show');
-        }, 3000);
-      }, 2000);
-    });
-  </script>
 </body>
 </html>
